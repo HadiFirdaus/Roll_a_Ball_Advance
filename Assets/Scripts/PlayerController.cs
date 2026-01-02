@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
@@ -26,6 +25,7 @@ public class PlayerController : MonoBehaviour
         //count = 0;
         SetCountText();
         winText.text = "";
+        Debug.Log("Hello World");
     }
 
     void FixedUpdate()

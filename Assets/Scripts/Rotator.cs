@@ -6,7 +6,7 @@ public class Rotator : MonoBehaviour
 	Vector3 rotation;
     Material[] mat;
     Renderer rend;
-	float rotationSpeed=10f;
+	float rotationSpeed = 10f;
     int random;
 
     void Start()
