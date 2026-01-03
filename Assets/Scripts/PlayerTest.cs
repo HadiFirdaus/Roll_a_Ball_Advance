@@ -1,21 +1,23 @@
 using UnityEngine;
+using TMPro;
 
-public class NewMonoBehaviourScript : MonoBehaviour
+public class PlayerTest : MonoBehaviour
 {
     [SerializeField]
-    float speed;
-
+    public float speed;
     private Rigidbody rb;
+    private int count;
+    public TextMeshProUGUI countText;
+    public GameObject winTextObject;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        count = 0;
+        SetCountText();
+        winTextObject.SetActive(false);
     }
-    void Update()
-    {
-        
-    }
-
-    void FixedUpdate()
+ 
+    private void FixedUpdate()
     {
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
@@ -27,14 +29,20 @@ public class NewMonoBehaviourScript : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        GetGameObjectNameOnTrigger(other);
+        if(other.gameObject.CompareTag("Pick Up"))
+        {
+            other.gameObject.SetActive(false);  //Deactivate making it disappears
+            count = count+1;
+            SetCountText();
+        }
     }
 
-    void GetGameObjectNameOnTrigger(Collider other)
+    void SetCountText()
     {
-        if(other != null)
+        countText.text = "Count:"+count.ToString();
+        if(count == 4)
         {
-            Debug.Log("Name: "+other.gameObject.name);            
+            winTextObject.SetActive(true);
         }
     }
 }

@@ -28,6 +28,8 @@ public class PlayerController : MonoBehaviour
         Debug.Log("Hello World");
     }
 
+
+
     void FixedUpdate()
     {
         float moveHorizontal = Input.GetAxis("Horizontal");

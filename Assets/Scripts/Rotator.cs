@@ -11,7 +11,7 @@ public class Rotator : MonoBehaviour
 
     void Start()
     {
-		RandomizeColor ();
+		// RandomizeColor ();
 
     }
 		
